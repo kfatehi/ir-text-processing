@@ -12,6 +12,7 @@ CLASSPATH=.:$(JUNIT):$(BUILD)
 JAVAC_SRCLIST_FOR_TEST= \
 						src/ir/assignments/one/a/Frequency.java \
 						src/ir/assignments/one/a/Utilities.java \
+						test/support/TestHelper.java \
 						test/support/Fixtures.java \
 						test/src/UtilitiesTest.java \
 
@@ -28,7 +29,7 @@ autotest: tdd
 
 compile-for-test: clean
 	@mkdir -p $(BUILD)
-	@javac -Xlint -g -d $(BUILD) -cp $(JAVAC_COPY_FOR_TEST) $(JAVAC_SRCLIST_FOR_TEST)
+	@javac -g -d $(BUILD) -cp $(JAVAC_COPY_FOR_TEST) $(JAVAC_SRCLIST_FOR_TEST)
 
 test: compile-for-test
 	@java -cp fixtures -classpath $(CLASSPATH) org.junit.runner.JUnitCore $(JAVA_PKGLIST_FOR_TEST) | $(SHORTSTACK)
