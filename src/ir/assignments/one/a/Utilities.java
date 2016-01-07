@@ -38,22 +38,22 @@ public class Utilities {
 	 * @return The list of tokens (words) from the input file, ordered by occurrence.
 	 */
 	public static ArrayList<String> tokenizeFile(File input) {
-        ArrayList<String> out = new ArrayList<>();
-        final Scanner sc;
-        try {
-            sc = new Scanner(input);
-            while (sc.hasNextInt()) {
-                System.out.println("ok////");
-                int ch = sc.nextInt();
-                System.out.println(ch);
-                if (ch >= 48 && ch <= 122) {
-                    System.out.println(ch);
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return out;
+    	ArrayList<String> out = new ArrayList<>();
+		final Scanner sc;
+		try {
+			sc = new Scanner(input);
+			while (sc.hasNextInt()) {
+				System.out.println("ok////");
+				int ch = sc.nextInt();
+				System.out.println(ch);
+				if (ch >= 48 && ch <= 122) {
+					System.out.println(ch);
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return out;
 	}
 	
 	/**
