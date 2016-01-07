@@ -24,7 +24,7 @@ default: test
 
 compile-for-test: clean
 	mkdir -p $(BUILD)
-	javac -g -d $(BUILD) -cp $(JAVAC_COPY_FOR_TEST) $(JAVAC_SRCLIST_FOR_TEST)
+	javac -Xlint -g -d $(BUILD) -cp $(JAVAC_COPY_FOR_TEST) $(JAVAC_SRCLIST_FOR_TEST)
 
 test: compile-for-test
 	java -cp fixtures -classpath $(CLASSPATH) org.junit.runner.JUnitCore $(JAVA_PKGLIST_FOR_TEST)
