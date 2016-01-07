@@ -1,8 +1,9 @@
-package ir.assignments.one.a;
+package ir.test;
+
+import ir.assignments.one.a.Utilities;
 
 import junit.framework.TestCase;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,11 +13,9 @@ import java.util.Arrays;
 public class UtilitiesTest extends TestCase {
 
 	public void testTokenizeFile() throws Exception {
-		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("test/fixtures/a.txt").getFile());
 		String[] parts = "an input string this is or is it".split(" ");
 		ArrayList<String> expected = new ArrayList<>(Arrays.asList(parts));
-		ArrayList<String> actual = Utilities.tokenizeFile(file);
+		ArrayList<String> actual = Utilities.tokenizeFile(Fixtures.get("a.txt"));
 		assertEquals(actual, expected);
 	}
 

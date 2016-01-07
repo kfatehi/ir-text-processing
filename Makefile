@@ -1,7 +1,4 @@
 BUILD=_build
-PKG=ir.assignments.one.a
-SRC=src/ir/assignments/one/a
-TEST_SRC=test/src
 TEST_FIXTURES=test/fixtures
 TEST_LIB=test/lib
 JUNIT=$(TEST_LIB)/hamcrest-core-1.3.jar:$(TEST_LIB)/junit-4.12.jar
@@ -12,14 +9,15 @@ SHORTSTACK_BIN=test/support/shortstack/bin/shortstack
 CLASSPATH=.:$(JUNIT):$(BUILD)
 
 # Source files to compile, in order
-JAVAC_SRCLIST_FOR_TEST=    \
-						$(SRC)/Frequency.java \
-						$(SRC)/Utilities.java \
-						$(TEST_SRC)/UtilitiesTest.java \
+JAVAC_SRCLIST_FOR_TEST= \
+						src/ir/assignments/one/a/Frequency.java \
+						src/ir/assignments/one/a/Utilities.java \
+						test/src/Fixtures.java \
+						test/src/UtilitiesTest.java \
 
 # Tests to execute, in order
-JAVA_PKGLIST_FOR_TEST=    \
-						$(PKG).UtilitiesTest \
+JAVA_PKGLIST_FOR_TEST= \
+						ir.test.UtilitiesTest \
 
 default: test
 
