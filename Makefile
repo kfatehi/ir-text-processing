@@ -6,6 +6,7 @@ TEST_FIXTURES=test/fixtures
 TEST_LIB=test/lib
 JUNIT=$(TEST_LIB)/hamcrest-core-1.3.jar:$(TEST_LIB)/junit-4.12.jar
 JAVAC_COPY_FOR_TEST=$(TEST_LIB)/junit-4.12.jar:$(TEST_FIXTURES)
+SHORTSTACK_BIN=test/support/shortstack/bin/shortstack
 
 # Path to libs, classes and jars used during the tests
 CLASSPATH=.:$(JUNIT):$(BUILD)
@@ -23,11 +24,11 @@ JAVA_PKGLIST_FOR_TEST=    \
 default: test
 
 compile-for-test: clean
-	mkdir -p $(BUILD)
-	javac -Xlint -g -d $(BUILD) -cp $(JAVAC_COPY_FOR_TEST) $(JAVAC_SRCLIST_FOR_TEST)
+	@mkdir -p $(BUILD)
+	@javac -Xlint -g -d $(BUILD) -cp $(JAVAC_COPY_FOR_TEST) $(JAVAC_SRCLIST_FOR_TEST)
 
 test: compile-for-test
-	java -cp fixtures -classpath $(CLASSPATH) org.junit.runner.JUnitCore $(JAVA_PKGLIST_FOR_TEST)
+	@java -cp fixtures -classpath $(CLASSPATH) org.junit.runner.JUnitCore $(JAVA_PKGLIST_FOR_TEST) | $(SHORTSTACK_BIN)
 
 clean:
-	rm -rf $(BUILD)
+	@rm -rf $(BUILD)
