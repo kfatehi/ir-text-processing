@@ -23,6 +23,11 @@ JAVA_PKGLIST_FOR_TEST=    \
 
 default: test
 
+tdd:
+	watchy -w src,test -- bash -c "clear; make test"
+
+autotest: tdd
+
 compile-for-test: clean
 	@mkdir -p $(BUILD)
 	@javac -Xlint -g -d $(BUILD) -cp $(JAVAC_COPY_FOR_TEST) $(JAVAC_SRCLIST_FOR_TEST)
