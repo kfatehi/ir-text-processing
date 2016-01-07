@@ -92,5 +92,6 @@ public class Utilities {
 	 */
 	public static void printFrequencies(List<Frequency> frequencies) {
 		// TODO Write body!
+		System.out.println("aha");
 	}
 }
