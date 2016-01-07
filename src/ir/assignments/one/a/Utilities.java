@@ -12,6 +12,8 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.function.Function;
 import java.util.stream.Stream;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 /**
  * A collection of utility methods for text processing.
@@ -39,16 +41,17 @@ public class Utilities {
 	 */
 	public static ArrayList<String> tokenizeFile(File input) {
     	ArrayList<String> out = new ArrayList<>();
+		final Pattern whitelist = Pattern.compile("([^A-z0-9])");
 		final Scanner sc;
 		try {
 			sc = new Scanner(input);
-			while (sc.hasNextInt()) {
-				System.out.println("ok////");
-				int ch = sc.nextInt();
-				System.out.println(ch);
-				if (ch >= 48 && ch <= 122) {
-					System.out.println(ch);
-				}
+			while (sc.hasNext()) {
+				out.add(
+						whitelist
+						.matcher(sc.next())
+						.replaceAll("")
+						.toLowerCase()
+					   );
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
