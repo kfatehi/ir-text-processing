@@ -23,15 +23,20 @@ public class UtilitiesTest extends TestCase {
 		assertEquals(actual, expected);
 	}
 
-	public void testPrintFrequencies() throws Exception {
+	public void testPrintFrequenciesExampleOne() throws Exception {
 		captureOutput( new CaptureTest() {
 			@Override
 			public void test(ByteArrayOutputStream outContent, ByteArrayOutputStream errContent) throws Exception {
-
 				ArrayList<Frequency> frequencies = new ArrayList<>();
 				Utilities.printFrequencies(frequencies);
-
-				assertEquals( "aha\n", outContent.toString() );
+				String actual = outContent.toString();
+				String expected =
+					"sentence	2\n"
+					+"the		1\n"
+					+"this		1\n"
+					+"repeats	1\n"
+					+"word		1\n";
+				assertEquals(actual, expected);
 			}
 		});
 	}
