@@ -1,19 +1,11 @@
 package ir.assignments.one.a;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
-import java.util.function.Function;
-import java.util.stream.Stream;
 import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 /**
  * A collection of utility methods for text processing.
