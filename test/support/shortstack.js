@@ -1,36 +1,47 @@
 "use strict";
 // Removes the noise from the JUnit stack trace
 
-let blacklist = [
-  /at org.junit/,
-  /at junit.framework/,
-  /at sun.reflect/,
-  /at java.lang.reflect/
-]
+let rules = [{
+  pattern: /at org.junit/,
+  reject: true
+},{
+  pattern: /at junit.framework/,
+  reject: true
+},{
+  pattern: /at sun.reflect/,
+  reject: true
+},{
+  pattern: /at java.lang.reflect/,
+  reject: true
+},{
+  pattern: /FAILURES!!!/,
+  reject: true,
+  after: () => { process.exit(1) }
+}]
+
+let after = [];
 
 let doctor = (chunk) => {
   var trace = chunk.split('\n')
   let newTrace = [];
   var match = null;
   trace.forEach(line => {
-    if (line.match(/JUnit version/)) return;
-    else if (line.match('Time')) return;
-    else if (line.match('There was')) return;
-    else if (line.match('FAILURES!!!')) process.exit(1);
-    else {
-      let rejectReason = null;
-      blacklist.forEach(pattern => {
-        let match = line.match(pattern)
-        if (match) {
-          rejectReason = match[0]
-          return false
+    let reject = false
+    rules.forEach(rule => {
+      let match = line.match(rule.pattern)
+      if (match) {
+        if (rule.reject) {
+          reject = true;
+          //console.log('reject', line, rule);
         }
-      })
-      if (rejectReason) {
-        // console.log('reject', line, rejectReason);
-      } else {
-        newTrace.push(line);
+        if (rule.after) {
+          after.push(rule.after);
+        }
+        return false
       }
+    })
+    if (!reject) {
+      newTrace.push(line);
     }
   })
   trace = newTrace;
@@ -41,4 +52,8 @@ let doctor = (chunk) => {
 
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
-process.stdin.on('data', chunk => process.stdout.write(doctor(chunk)))
+process.stdin
+.on('data', chunk => process.stdout.write(doctor(chunk)))
+.on('end', () => {
+  after.forEach( fn => fn())
+})
