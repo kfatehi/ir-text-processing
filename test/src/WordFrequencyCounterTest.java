@@ -47,8 +47,20 @@ public class WordFrequencyCounterTest extends TestCase {
 		ArrayList<String> words = splitOnSpaces("top top top cat bat rat cat rat bat last");
 		List<Frequency> list = WordFrequencyCounter.computeWordFrequencies(words);
 		ArrayList<Frequency> actual = new ArrayList<>(WordFrequencyCounter.computeWordFrequencies(words));
-		assertEquals(7, actual.size());
-		assertEquals(actual.get(0).getText(), "is");
-		assertEquals(actual.get(0).getFrequency(), 2);
+		assertEquals(5, actual.size());
+		assertEquals(actual.get(0).getText(), "top");
+		assertEquals(actual.get(0).getFrequency(), 3);
+
+		assertEquals(actual.get(1).getText(), "bat");
+		assertEquals(actual.get(1).getFrequency(), 2);
+
+		assertEquals(actual.get(2).getText(), "cat");
+		assertEquals(actual.get(2).getFrequency(), 2);
+
+		assertEquals(actual.get(3).getText(), "rat");
+		assertEquals(actual.get(3).getFrequency(), 2);
+
+		assertEquals(actual.get(4).getText(), "last");
+		assertEquals(actual.get(4).getFrequency(), 1);
 	}
 }
