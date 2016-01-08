@@ -59,7 +59,11 @@ public final class WordFrequencyCounter {
 			
 			Collections.sort(freqs, new Comparator<Frequency>() {
 				public int compare(Frequency a, Frequency b) {
-					return Integer.compare(b.getFrequency(), a.getFrequency());
+					int result = Integer.compare(b.getFrequency(), a.getFrequency());
+					if (result == 0) {
+						result = a.getText().compareTo(b.getText());
+					}
+					return result;
 				}
 			});
 
