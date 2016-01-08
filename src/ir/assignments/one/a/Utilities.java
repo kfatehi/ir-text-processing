@@ -91,7 +91,13 @@ public class Utilities {
 	 * @param frequencies A list of frequencies.
 	 */
 	public static void printFrequencies(List<Frequency> frequencies) {
-		// TODO Write body!
-		System.out.println("aha");
+		frequencies.forEach( freq -> {
+			System.out.printf
+				(
+				 "%-20s%s%n",
+				 freq.getText(),
+				 freq.getFrequency()
+				);
+		});
 	}
 }
