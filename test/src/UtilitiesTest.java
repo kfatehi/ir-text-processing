@@ -45,4 +45,27 @@ public class UtilitiesTest extends TestCase {
 			}
 		});
 	}
+
+	public void testPrintFrequenciesExampleTwo() throws Exception {
+		ArrayList<Frequency> freqs = new ArrayList<>();
+		freqs.add(new Frequency("you think", 2));
+		freqs.add(new Frequency("how you", 1));
+		freqs.add(new Frequency("know how", 1));
+		freqs.add(new Frequency("think you", 1));
+		freqs.add(new Frequency("you know", 1));
+		final String expected =
+			"you think           2\n"
+			+"how you             1\n"
+			+"know how            1\n"
+			+"think you           1\n"
+			+"you know            1\n";
+		captureOutput( new CaptureTest() {
+			@Override
+			public void test(ByteArrayOutputStream outContent, ByteArrayOutputStream errContent) throws Exception {
+				Utilities.printFrequencies(freqs);
+				String actual = outContent.toString();
+				assertEquals(expected, actual);
+			}
+		});
+	}
 }
