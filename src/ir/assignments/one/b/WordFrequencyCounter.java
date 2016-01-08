@@ -6,6 +6,9 @@ import ir.assignments.one.a.Utilities;
 import java.io.File;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Comparator;
+import java.util.Collections;
 
 /**
  * Counts the total number of words and their frequencies in a text file.
@@ -44,9 +47,26 @@ public final class WordFrequencyCounter {
 	 * @return A list of word frequencies, ordered by decreasing frequency.
 	 */
 	public static List<Frequency> computeWordFrequencies(List<String> words) {
-		List<Frequency> out = new ArrayList<>();
+		if (words != null) {
+			HashMap<String,Frequency> map = new HashMap<>();
+			for (String word : words) {
+			    Frequency freq = map.getOrDefault(word, new Frequency(word));
+				freq.incrementFrequency();
+				map.put(word, freq);
+			}
 
-		return out;
+			ArrayList<Frequency> freqs = new ArrayList<>(map.values());
+			
+			Collections.sort(freqs, new Comparator<Frequency>() {
+				public int compare(Frequency a, Frequency b) {
+					return Integer.compare(b.getFrequency(), a.getFrequency());
+				}
+			});
+
+			return freqs;
+		} else {
+			return new ArrayList<>();
+		}
 	}
 	
 	/**
