@@ -5,6 +5,7 @@ import ir.assignments.one.a.Utilities;
 
 import java.io.File;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Counts the total number of words and their frequencies in a text file.
@@ -43,8 +44,9 @@ public final class WordFrequencyCounter {
 	 * @return A list of word frequencies, ordered by decreasing frequency.
 	 */
 	public static List<Frequency> computeWordFrequencies(List<String> words) {
-		// TODO Write body!
-		return null;
+		List<Frequency> out = new ArrayList<>();
+
+		return out;
 	}
 	
 	/**
