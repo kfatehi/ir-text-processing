@@ -16,13 +16,18 @@ import java.io.ByteArrayOutputStream;
  */
 public class UtilitiesTest extends TestCase {
 
+	/**
+	 * Tests that our fixture file is correctly tokenized as a lowercase list of words.
+	 */
 	public void testTokenizeFile() throws Exception {
-		final String[] parts = "an input string this is or is it".split(" ");
-		final ArrayList<String> expected = new ArrayList<>(Arrays.asList(parts));
+		final ArrayList<String> expected = splitOnSpaces("an input string this is or is it");
 		final ArrayList<String> actual = Utilities.tokenizeFile(Fixtures.get("a.txt"));
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Tests that frequencies are printed correctly in a tabulated fashion
+	 */
 	public void testPrintFrequenciesExampleOne() throws Exception {
 		ArrayList<Frequency> freqs = new ArrayList<>();
 		freqs.add(new Frequency("sentence", 2));
@@ -46,6 +51,9 @@ public class UtilitiesTest extends TestCase {
 		});
 	}
 
+	/**
+	 * Tests that 2-gram frequencies are printed correctly in a tabulated fashion
+	 */
 	public void testPrintFrequenciesExampleTwo() throws Exception {
 		ArrayList<Frequency> freqs = new ArrayList<>();
 		freqs.add(new Frequency("you think", 2));
