@@ -34,8 +34,8 @@ public class WordFrequencyCounterTest extends TestCase {
 		final String[] parts = "an input string this is or is it".split(" ");
 		final ArrayList<String> words = new ArrayList<>(Arrays.asList(parts));
 		ArrayList<Frequency> actual = new ArrayList<>(WordFrequencyCounter.computeWordFrequencies(words));
-		Frequency first = actual.get(0);
-		assertEquals(first.getText(), "is");
-		assertEquals(first.getFrequency(), 2);
+		assertEquals(actual.size(), 7);
+		assertEquals(actual.get(0).getText(), "is");
+		assertEquals(actual.get(0).getFrequency(), 2);
 	}
 }
