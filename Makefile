@@ -30,11 +30,11 @@ tdd:
 
 autotest: tdd
 
-compile-for-test: clean
+compile: clean
 	@mkdir -p $(BUILD)
 	@javac -g -d $(BUILD) -cp $(JAVAC_COPY_FOR_TEST) $(JAVAC_SRCLIST_FOR_TEST)
 
-test: compile-for-test
+test: compile
 	@java -cp fixtures -classpath $(CLASSPATH) org.junit.runner.JUnitCore $(JAVA_PKGLIST_FOR_TEST) | $(SHORTSTACK)
 
 clean:
@@ -47,5 +47,8 @@ docs:
 
 autodoc:
 	watchy -w src,test -- bash -c "clear; make docs"
+
+run-word-freq-counter: compile
+	time java -classpath $(BUILD) ir.assignments.one.b.WordFrequencyCounter
 
 .PHONY: docs
