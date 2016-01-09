@@ -47,22 +47,22 @@ public class WordFrequencyCounterTest extends TestCase {
 		final String str = "top top cat bat rat cat rat bat last top";
 		ArrayList<String> words = splitOnSpaces(str);
 		List<Frequency> list = WordFrequencyCounter.computeWordFrequencies(words);
-		ArrayList<Frequency> actual = new ArrayList<>(WordFrequencyCounter.computeWordFrequencies(words));
+		ArrayList<Frequency> actual = new ArrayList<>(list);
 		assertEquals(5, actual.size());
-		assertEquals(actual.get(0).getText(), "top");
-		assertEquals(actual.get(0).getFrequency(), 3);
+		assertEquals("top", actual.get(0).getText());
+		assertEquals(3, actual.get(0).getFrequency());
 
-		assertEquals(actual.get(1).getText(), "bat");
-		assertEquals(actual.get(1).getFrequency(), 2);
+		assertEquals("bat", actual.get(1).getText());
+		assertEquals(2, actual.get(1).getFrequency());
 
-		assertEquals(actual.get(2).getText(), "cat");
-		assertEquals(actual.get(2).getFrequency(), 2);
+		assertEquals("cat", actual.get(2).getText());
+		assertEquals(2, actual.get(2).getFrequency());
 
-		assertEquals(actual.get(3).getText(), "rat");
-		assertEquals(actual.get(3).getFrequency(), 2);
+		assertEquals("rat", actual.get(3).getText());
+		assertEquals(2, actual.get(3).getFrequency());
 
-		assertEquals(actual.get(4).getText(), "last");
-		assertEquals(actual.get(4).getFrequency(), 1);
+		assertEquals("last", actual.get(4).getText());
+		assertEquals(1, actual.get(4).getFrequency());
 	}
 
 	/**
@@ -76,4 +76,35 @@ public class WordFrequencyCounterTest extends TestCase {
 		assertEquals(words, splitOnSpaces(str));
 	}
 
+	/**
+	 * Tests that the following case is true.
+	 *
+	 * Given the input list of strings
+	 * ["this", "sentence", "repeats", "the", "word", "sentence"]
+	 *
+	 * The output list of frequencies should be
+	 * ["sentence:2", "repeats:1", "the:1", "this:1", "word:1"]
+	 */
+	public void testComputeWordFrequenciesExampleFive() throws Exception {
+		final String str = "this sentence repeats the word sentence";
+		ArrayList<String> words = splitOnSpaces(str);
+		List<Frequency> list = WordFrequencyCounter.computeWordFrequencies(words);
+		ArrayList<Frequency> actual = new ArrayList<>(list);
+		assertEquals(5, actual.size());
+
+		assertEquals("sentence", actual.get(0).getText());
+		assertEquals(2, actual.get(0).getFrequency());
+
+		assertEquals("repeats", actual.get(1).getText());
+		assertEquals(1, actual.get(1).getFrequency());
+
+		assertEquals("the", actual.get(2).getText());
+		assertEquals(1, actual.get(2).getFrequency());
+
+		assertEquals("this", actual.get(3).getText());
+		assertEquals(1, actual.get(3).getFrequency());
+
+		assertEquals("word", actual.get(4).getText());
+		assertEquals(1, actual.get(4).getFrequency());
+	}
 }

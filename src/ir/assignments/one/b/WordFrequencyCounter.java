@@ -41,7 +41,7 @@ public final class WordFrequencyCounter {
 	 * ["this", "sentence", "repeats", "the", "word", "sentence"]
 	 * 
 	 * The output list of frequencies should be 
-	 * ["sentence:2", "the:1", "this:1", "repeats:1",  "word:1"]
+	 * ["sentence:2", "repeats:1", "the:1", "this:1", "word:1"]
 	 *  
 	 * @param words A list of words.
 	 * @return A list of word frequencies, ordered by decreasing frequency.
