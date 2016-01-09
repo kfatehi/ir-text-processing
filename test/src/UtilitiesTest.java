@@ -36,7 +36,10 @@ public class UtilitiesTest extends TestCase {
 		freqs.add(new Frequency("repeats", 1));
 		freqs.add(new Frequency("word", 1));
 		final String expected =
-			"sentence            2\n"
+			"Total item count: 6\n"
+			+"Unique item count: 5\n"
+			+"\n"
+			+"sentence            2\n"
 			+"the                 1\n"
 			+"this                1\n"
 			+"repeats             1\n"
@@ -62,7 +65,10 @@ public class UtilitiesTest extends TestCase {
 		freqs.add(new Frequency("think you", 1));
 		freqs.add(new Frequency("you know", 1));
 		final String expected =
-			"you think           2\n"
+			"Total 2-gram count: 6\n"
+			+"Unique 2-gram count: 5\n"
+			+"\n"
+			+"you think           2\n"
 			+"how you             1\n"
 			+"know how            1\n"
 			+"think you           1\n"
