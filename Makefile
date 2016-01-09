@@ -41,9 +41,9 @@ clean:
 	@rm -rf $(BUILD)
 
 docs:
-	@rm -rf docs
-	@mkdir -p docs
-	javadoc -d docs -classpath $(CLASSPATH) $(JAVAC_SRCLIST_FOR_TEST)
+	@rm -rf _docs
+	@mkdir -p _docs
+	javadoc -d _docs -classpath $(CLASSPATH) $(JAVAC_SRCLIST_FOR_TEST)
 
 autodoc:
 	watchy -w src,test -- bash -c "clear; make docs"
