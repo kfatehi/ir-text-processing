@@ -4,8 +4,11 @@ import ir.assignments.one.a.Frequency;
 import ir.assignments.one.a.Utilities;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Comparator;
+import java.util.Collections;
 
 /**
  * Count the total number of 2-grams and their frequencies in a text file.
@@ -44,8 +47,30 @@ public final class TwoGramFrequencyCounter {
 	 * @return A list of two gram frequencies, ordered by decreasing frequency.
 	 */
 	public static List<Frequency> computeTwoGramFrequencies(ArrayList<String> words) {
-		// TODO Write body!
-		return null;
+		if (words != null) {
+			HashMap<String,Frequency> map = new HashMap<>();
+			for (String word : words) {
+			    Frequency freq = map.getOrDefault(word, new Frequency(word));
+				freq.incrementFrequency();
+				map.put(word, freq);
+			}
+
+			ArrayList<Frequency> freqs = new ArrayList<>(map.values());
+			
+			Collections.sort(freqs, new Comparator<Frequency>() {
+				public int compare(Frequency a, Frequency b) {
+					int result = Integer.compare(b.getFrequency(), a.getFrequency());
+					if (result == 0) {
+						result = a.getText().compareTo(b.getText());
+					}
+					return result;
+				}
+			});
+
+			return freqs;
+		} else {
+			return new ArrayList<>();
+		}
 	}
 	
 	/**
