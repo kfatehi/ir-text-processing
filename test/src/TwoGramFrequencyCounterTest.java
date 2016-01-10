@@ -25,6 +25,17 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 	}
 
 	/**
+	 * Tests that it returns an empty array if input contains only one word
+	 */
+	public void testComputeTwoGramFrequenciesExampleTwo() throws Exception {
+		final String str = "hello";
+		final ArrayList<String> words = splitOnSpaces(str);
+		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequencies(words);
+		final ArrayList<Frequency> actual = new ArrayList<>(list);
+		assertEquals(0, actual.size());
+	}
+
+	/**
 	 *
 	 * Tests that there is one frequency in the output list for every 
 	 * unique 2-gram in the original list. The frequency of each 2-gram
@@ -42,7 +53,7 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 	 * ["you think:2", "how you:1", "know how:1", "think you:1", "you know:1"]
 	 *
 	 */
-	public void testComputeWordFrequenciesExampleFive() throws Exception {
+	public void testComputeTwoGramFrequenciesExampleThree() throws Exception {
 		final String str = "you think you know how you think";
 		final ArrayList<String> words = splitOnSpaces(str);
 		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequencies(words);
@@ -63,5 +74,33 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 
 		assertEquals("you know", actual.get(4).getText());
 		assertEquals(1, actual.get(4).getFrequency());
+	}
+
+	/**
+	 * Tests that it works for a simple two word input
+	 */
+	public void testComputeTwoGramFrequenciesExampleFour() throws Exception {
+		final String str = "hello world";
+		final ArrayList<String> words = splitOnSpaces(str);
+		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequencies(words);
+		final ArrayList<Frequency> actual = new ArrayList<>(list);
+		assertEquals(1, actual.size());
+		assertEquals("hello world", actual.get(0).getText());
+		assertEquals(1, actual.get(0).getFrequency());
+	}
+
+	/**
+	 * Tests that it works for a three word input
+	 */
+	public void testComputeTwoGramFrequenciesExampleFive() throws Exception {
+		final String str = "hello world goodbye";
+		final ArrayList<String> words = splitOnSpaces(str);
+		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequencies(words);
+		final ArrayList<Frequency> actual = new ArrayList<>(list);
+		assertEquals(2, actual.size());
+		assertEquals("hello world", actual.get(0).getText());
+		assertEquals(1, actual.get(0).getFrequency());
+		assertEquals("world goodbye", actual.get(1).getText());
+		assertEquals(1, actual.get(1).getFrequency());
 	}
 }
