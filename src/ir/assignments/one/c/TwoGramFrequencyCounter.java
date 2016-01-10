@@ -7,7 +7,6 @@ import java.io.File;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Comparator;
 import java.util.Collections;
 
 /**
@@ -49,23 +48,18 @@ public final class TwoGramFrequencyCounter {
 	public static List<Frequency> computeTwoGramFrequencies(ArrayList<String> words) {
 		if (words != null) {
 			HashMap<String,Frequency> map = new HashMap<>();
-			for (String word : words) {
-			    Frequency freq = map.getOrDefault(word, new Frequency(word));
+
+			// we are looking ahead 1, so we stop short of the last element
+			for (int i=0; i < words.size() - 1; i++) {
+				String twoGram = words.get(i)+" "+words.get(i+1);
+			    Frequency freq = map.getOrDefault(twoGram, new Frequency(twoGram));
 				freq.incrementFrequency();
-				map.put(word, freq);
+				map.put(twoGram, freq);
 			}
 
 			ArrayList<Frequency> freqs = new ArrayList<>(map.values());
 			
-			Collections.sort(freqs, new Comparator<Frequency>() {
-				public int compare(Frequency a, Frequency b) {
-					int result = Integer.compare(b.getFrequency(), a.getFrequency());
-					if (result == 0) {
-						result = a.getText().compareTo(b.getText());
-					}
-					return result;
-				}
-			});
+			Collections.sort(freqs, Utilities.frequencyComparator);
 
 			return freqs;
 		} else {

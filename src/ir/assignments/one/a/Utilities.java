@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 import java.util.Arrays;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Comparator;
 
 /**
  * A collection of utility methods for text processing.
@@ -126,4 +127,21 @@ public class Utilities {
 		System.out.print(tableContent.toString());
 
 	}
+
+	/**
+	 * A comparator used to sort a list of frequencies.
+	 *
+	 * <h2>Sort Criteria</h2><ol>
+	 * <li>decreasing frequency</li>
+	 * <li>alphabetical order</li></ol>
+	 */
+	public static Comparator<Frequency> frequencyComparator = new Comparator<Frequency>() {
+		public int compare(Frequency a, Frequency b) {
+			int result = Integer.compare(b.getFrequency(), a.getFrequency());
+			if (result == 0) {
+				result = a.getText().compareTo(b.getText());
+			}
+			return result;
+		}
+	};
 }

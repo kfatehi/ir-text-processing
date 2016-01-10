@@ -25,13 +25,22 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 	}
 
 	/**
-	 * Tests that the following case is true.
+	 *
+	 * Tests that there is one frequency in the output list for every 
+	 * unique 2-gram in the original list. The frequency of each 2-gram
+	 * is equal to the number of times that two-gram occurs in the original list. 
+	 * 
+	 * The returned list is ordered by decreasing frequency, with tied 2-grams sorted
+	 * alphabetically. 
+	 *
+	 * Example:
 	 *
 	 * Given the input list of strings 
 	 * ["you", "think", "you", "know", "how", "you", "think"]
 	 * 
 	 * The output list of 2-gram frequencies should be 
 	 * ["you think:2", "how you:1", "know how:1", "think you:1", "you know:1"]
+	 *
 	 */
 	public void testComputeWordFrequenciesExampleFive() throws Exception {
 		final String str = "you think you know how you think";
@@ -43,7 +52,7 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 		assertEquals("you think", actual.get(0).getText());
 		assertEquals(2, actual.get(0).getFrequency());
 
-		assertEquals("how you ", actual.get(1).getText());
+		assertEquals("how you", actual.get(1).getText());
 		assertEquals(1, actual.get(1).getFrequency());
 
 		assertEquals("know how", actual.get(2).getText());
