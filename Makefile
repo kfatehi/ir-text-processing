@@ -13,15 +13,18 @@ JAVAC_SRCLIST_FOR_TEST= \
 						src/ir/assignments/one/a/Frequency.java \
 						src/ir/assignments/one/a/Utilities.java \
 						src/ir/assignments/one/b/WordFrequencyCounter.java \
+						src/ir/assignments/one/c/TwoGramFrequencyCounter.java \
 						test/support/TestHelper.java \
 						test/support/Fixtures.java \
 						test/src/UtilitiesTest.java \
 						test/src/WordFrequencyCounterTest.java \
+						test/src/TwoGramFrequencyCounterTest.java \
 
 # Tests to execute, in order
 JAVA_PKGLIST_FOR_TEST= \
 						ir.test.UtilitiesTest \
 						ir.test.WordFrequencyCounterTest \
+						ir.test.TwoGramFrequencyCounterTest \
 
 default: test
 
