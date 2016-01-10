@@ -4,8 +4,10 @@ import ir.assignments.one.a.Frequency;
 import ir.assignments.one.a.Utilities;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Collections;
 
 public class PalindromeFrequencyCounter {
 	/**
@@ -42,10 +44,24 @@ public class PalindromeFrequencyCounter {
 	 * @param words A list of words.
 	 * @return A list of palindrome frequencies, ordered by decreasing frequency.
 	 */
-	private static List<Frequency> computePalindromeFrequencies(ArrayList<String> words) {
-		// TODO Write body!
-		// You will likely want to create helper methods / classes to help implement this functionality
-		return null;
+	public static List<Frequency> computePalindromeFrequencies(ArrayList<String> words) {
+		if (words != null) {
+			HashMap<String,Frequency> map = new HashMap<>();
+
+			// we are looking ahead 1, so we stop short of the last element
+			for (int i=0; i < words.size() - 1; i++) {
+				String twoGram = words.get(i)+" "+words.get(i+1);
+			    Frequency freq = map.getOrDefault(twoGram, new Frequency(twoGram));
+				freq.incrementFrequency();
+				map.put(twoGram, freq);
+			}
+
+			ArrayList<Frequency> freqs = new ArrayList<>(map.values());
+			Collections.sort(freqs, Utilities.frequencyComparator);
+			return freqs;
+		} else {
+			return new ArrayList<>();
+		}
 	}
 	
 	/**

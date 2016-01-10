@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Arrays;
 
 /**
- * Tests Word Frequency Counter
+ * Tests TwoGram Frequency Counter
  */
 public class TwoGramFrequencyCounterTest extends TestCase {
 
