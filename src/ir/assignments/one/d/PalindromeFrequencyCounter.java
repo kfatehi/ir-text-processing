@@ -50,7 +50,7 @@ public class PalindromeFrequencyCounter {
 		if (words != null) {
 			HashMap<String,Frequency> map = new HashMap<>();
 
-			for (int i=0; i < words.size(); i++) {
+			for (int i=0; i <= words.size(); i++) {
 				final String palindrome = findPalindrome(i, words);
 				if (palindrome != null)  {
 					Frequency freq = map.getOrDefault(palindrome, new Frequency(palindrome));
@@ -68,14 +68,14 @@ public class PalindromeFrequencyCounter {
 	}
 
 	/**
-	 * Scans the word list with respect to the index to find and return the palindrome at that point, if it exists.
+	 * Scans the word list up to {@param end} in search of a palindrome.
 	 *
-	 * @param i the index up to which to scan
-	 * @param words the list of words to search from
+	 * @param end The index to which to scan
+	 * @param words The list of words to scan
 	 * @return the palindrome, if found, otherwise null
 	 */
-	private static String findPalindrome(final int i, final ArrayList<String> words) {
-		for (int k=0; k<i; k++) {
+	private static String findPalindrome(final int i, final List<String> words) {
+		for (int k=0; k < i; k++) {
 			String possiblePalindrome = isPalindrome(words.subList(k, i));
 			if (possiblePalindrome != null)
 				return possiblePalindrome;
@@ -107,7 +107,7 @@ public class PalindromeFrequencyCounter {
 	 */
 	private static String isPalindrome(String string) {
 		String normal = string.replaceAll(" ", "");
-		if (reverseString(normal).equals(normal))
+		if (string.length() > 0 && reverseString(normal).equals(normal))
 			return string;
 		else
 			return null;
