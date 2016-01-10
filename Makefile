@@ -54,7 +54,4 @@ docs:
 autodoc:
 	watchy -w src,test -- bash -c "clear; make docs"
 
-run-word-freq-counter: compile
-	time java -classpath $(BUILD) ir.assignments.one.b.WordFrequencyCounter test/fixtures/a.txt
-
 .PHONY: docs

@@ -45,7 +45,6 @@ public class PalindromeFrequencyCounterTest extends TestCase {
 		final ArrayList<String> words = splitOnSpaces(str);
 		final List<Frequency> list = PalindromeFrequencyCounter.computePalindromeFrequencies(words);
 		final ArrayList<Frequency> actual = new ArrayList<>(list);
-		System.out.println(actual);
 		assertEquals(3, actual.size());
 
 		assertEquals("abba", actual.get(0).getText());
