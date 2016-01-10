@@ -60,7 +60,7 @@ public class PalindromeFrequencyCounter {
 			}
 
 			ArrayList<Frequency> freqs = new ArrayList<>(map.values());
-			Collections.sort(freqs, Utilities.frequencyComparator);
+			Collections.sort(freqs, Utilities.palindromeFrequencyComparator);
 			return freqs;
 		} else {
 			return new ArrayList<>();

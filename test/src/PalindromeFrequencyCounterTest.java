@@ -29,8 +29,8 @@ public class PalindromeFrequencyCounterTest extends TestCase {
 	 * unique palindrome in the original list. The frequency of each palindrome
 	 * is equal to the number of times that palindrome occurs in the original list. 
 	 * 
-	 * The returned list is ordered by decreasing frequency, with tied 2-grams sorted
-	 * alphabetically. 
+	 * The returned list is ordered by decreasing size, with tied palindromes sorted
+	 * by frequency and further tied palindromes sorted alphabetically. 
 	 *
 	 * Example:
 	 * 
@@ -38,7 +38,7 @@ public class PalindromeFrequencyCounterTest extends TestCase {
 	 * ["do", "geese", "see", "god", "abba", "bat", "tab"]
 	 * 
 	 * The output list of palindromes should be 
-	 * ["abba:1", "bat tab:1", "do geese see god:1"]
+	 * ["do geese see god:1", "bat tab:1", "abba:1"]
 	 */
 	public void testComputePalindromeFrequenciesExampleThree() throws Exception {
 		final String str = "do geese see god abba bat tab";
@@ -47,13 +47,13 @@ public class PalindromeFrequencyCounterTest extends TestCase {
 		final ArrayList<Frequency> actual = new ArrayList<>(list);
 		assertEquals(3, actual.size());
 
-		assertEquals("abba", actual.get(0).getText());
+		assertEquals("do geese see god", actual.get(0).getText());
 		assertEquals(1, actual.get(0).getFrequency());
 
 		assertEquals("bat tab", actual.get(1).getText());
 		assertEquals(1, actual.get(1).getFrequency());
 
-		assertEquals("do geese see god", actual.get(2).getText());
+		assertEquals("abba", actual.get(2).getText());
 		assertEquals(1, actual.get(2).getFrequency());
 	}
 }

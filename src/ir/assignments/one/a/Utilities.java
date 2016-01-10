@@ -144,4 +144,22 @@ public class Utilities {
 			return result;
 		}
 	};
+
+
+	/**
+	 * A comparator used to sort a list of palindrome frequencies.
+	 *
+	 * <h2>Sort Criteria</h2><ol>
+	 * <li>decreasing length</li>
+	 * <li>decreasing frequency</li>
+	 * <li>alphabetical order</li></ol>
+	 */
+	public static Comparator<Frequency> palindromeFrequencyComparator = new Comparator<Frequency>() {
+		public int compare(Frequency a, Frequency b) {
+			int result = Integer.compare( b.getText().length(), a.getText().length() );
+			if (result == 0)
+				result = frequencyComparator.compare(a, b);
+			return result;
+		}
+	};
 }
