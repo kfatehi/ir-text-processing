@@ -19,9 +19,18 @@ public class UtilitiesTest extends TestCase {
 	/**
 	 * Tests that our fixture file is correctly tokenized as a lowercase list of words.
 	 */
-	public void testTokenizeFile() throws Exception {
+	public void testTokenizeFileExampleOne() throws Exception {
 		final ArrayList<String> expected = splitOnSpaces("an input string this is or is it");
 		final ArrayList<String> actual = Utilities.tokenizeFile(Fixtures.get("a.txt"));
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests that a more aggressive fixture is tokenized correctly
+	 */
+	public void testTokenizeFileExampleTwo() throws Exception {
+		final ArrayList<String> expected = splitOnSpaces("t2 ti double f spaceez02 35 andnumbers");
+		final ArrayList<String> actual = Utilities.tokenizeFile(Fixtures.get("aggressive.txt"));
 		assertEquals(expected, actual);
 	}
 

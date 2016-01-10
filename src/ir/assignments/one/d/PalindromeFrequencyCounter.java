@@ -124,7 +124,7 @@ public class PalindromeFrequencyCounter {
 	}
 
 	/**
-	 * Runs the 2-gram counter. The input should be the path to a text file.
+	 * Runs the palindrome counter. The input should be the path to a text file.
 	 * 
 	 * @param args The first element should contain the path to a text file.
 	 */
