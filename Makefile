@@ -54,7 +54,14 @@ docs:
 autodoc:
 	watchy -w src,test -- bash -c "clear; make docs"
 
-analyze:
-	node test/support/analyzer/complexity.js --prefix "java -classpath _build ir.assignments.one.d.PalindromeFrequencyCounter" --parallel 2 --size 20
+analyzer-run-collector:
+	@PREFIX="java -classpath _build ir.assignments.one.d.PalindromeFrequencyCounter" \
+				 PARALLEL=2 \
+				 START_SIZE=1 \
+				 test/support/analyzer/collect.sh
+
+analyzer-collect:
+	rm -f test/support/analyzer/data.js
+	make analyzer-run-collector > test/support/analyzer/data.js
 
 .PHONY: docs

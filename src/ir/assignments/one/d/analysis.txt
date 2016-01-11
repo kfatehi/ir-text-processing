@@ -1,1 +1,10 @@
 Once you have implemented your palindrome counting algorithm, please perform a short analysis of its runtime complexity: Does it run in linear t.ime relative to the size of the input? polynomial time? exponential time? This analysis should go in the analysis.txt file in this package.
+
+
+Graphing Procedure:
+
+# run for as long as you want to collect data
+make analyzer-collect
+
+# open the graph
+open test/support/analyzer/index.html

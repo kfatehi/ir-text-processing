@@ -1,3 +1,5 @@
+lineData = _.sortBy(lineData, i => i.x);
+
 var vis = d3.select('#visualisation'),
     WIDTH = 1000,
     HEIGHT = 500,

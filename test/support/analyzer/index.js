@@ -13,7 +13,7 @@ function init() {
       let size = parseInt(args.size);
 
       analyze(size, cmd, cmdArgs, function(diff) {
-        console.log('%d\t%d', size, diff[0] * 1e9 + diff[1]);
+        console.log('{x:%d,y:%d},', size, diff[0] + (diff[1] / 1e9));
       });
       break
     }
