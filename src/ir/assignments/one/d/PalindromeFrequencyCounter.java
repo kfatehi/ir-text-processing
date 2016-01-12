@@ -129,6 +129,10 @@ public class PalindromeFrequencyCounter {
 	 * @param args The first element should contain the path to a text file.
 	 */
 	public static void main(String[] args) {
+		if (args.length == 0) {
+			System.err.println("Error: Expected input the path to a text file.");
+		    System.exit(1);
+		}
 		File file = new File(args[0]);
 		ArrayList<String> words = Utilities.tokenizeFile(file);
 		List<Frequency> frequencies = computePalindromeFrequencies(words);
