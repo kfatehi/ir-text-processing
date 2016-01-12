@@ -1,8 +1,6 @@
 Based on my analysis, the algorithm appears to run in polynomial time complexity O(n^2 log(n))
 
-I've also produced a runtime graph that appears to be consistent with this complexity class.
-
-The graph can be found as graph.png or in HTML form in test/support/analyzer/index.html
+I've also produced a runtime graph (graph.png) by running the function with randomly generated words using an 8-core linux machine over the span of several hours.
 
 computePalindromeFrequencies =
   Full Word Loop: O(n)
