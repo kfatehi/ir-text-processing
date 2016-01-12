@@ -5,10 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "chance": "^0.8.0",
-    "line-by-line": "^0.1.4",
     "lodash": "^3.10.1",
-    "minimist": "^1.2.0",
-    "progress": "^1.1.8"
+    "minimist": "^1.2.0"
   },
   "devDependencies": {},
   "scripts": {
