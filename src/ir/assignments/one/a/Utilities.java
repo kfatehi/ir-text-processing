@@ -51,6 +51,7 @@ public class Utilities {
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			System.exit(1);
 		}
 		return out;
 	}
