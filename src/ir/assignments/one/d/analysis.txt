@@ -1,10 +1,25 @@
-Once you have implemented your palindrome counting algorithm, please perform a short analysis of its runtime complexity: Does it run in linear t.ime relative to the size of the input? polynomial time? exponential time? This analysis should go in the analysis.txt file in this package.
+Summary: The palindrome counter runs in polynomial time.
 
+There seems to be at least two different ways to analyze the efficiency of my palindrome counter:
 
-Graphing Procedure:
+1) Read each line of code, accounting for loops and so on.
+2) Perform a large amount of trials and plot a function of input size in words versus running time.
 
-# run for as long as you want to collect data
-make analyzer-collect
+I opted for #2 and wrote scripts to accomplish this
 
-# open the graph
-open test/support/analyzer/index.html
+Test system:
+CPU: 8-core Intel Core i7
+RAM: 16GB
+
+I collected data points using a script designed to produce a valid JavaScript file with data ready for plotting by the D3 library:
+
+PREFIX="java -classpath _build ir.assignments.one.d.PalindromeFrequencyCounter" \
+PARALLEL=8 \
+START_SIZE=1 \
+test/support/analyzer/collect.sh
+
+Afterwards, I opened test/support/analyzer/index.html to see the graph. You can also check this out. The data file is saved in the repository.
+
+By comparing my generated graph with those of known Big O complexity classes (linked below), I was able to determine that my algorithm falls under the polynomial time complexity class.
+
+http://i.stack.imgur.com/ia6VB.png
