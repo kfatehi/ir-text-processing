@@ -2,12 +2,14 @@
 
 Information retreival homework
 
-The Makefile calls a **Node.js** script to filter the stacktrace.
-
 ## Run unit tests
 
 `make test`
 
-## Autotest
+## Compile
 
-`make autotest` _requires `watchy` to be installed_
+`make compile`
+
+## Run palindrome finder
+
+`java -classpath _build ir.assignments.one.d.PalindromeFrequencyCounter test/fixtures/pal.txt`
