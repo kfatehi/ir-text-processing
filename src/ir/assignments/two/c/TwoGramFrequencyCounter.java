@@ -45,7 +45,7 @@ public final class TwoGramFrequencyCounter {
 	 * @param words A list of words.
 	 * @return A list of two gram frequencies, ordered by decreasing frequency.
 	 */
-	public static List<Frequency> computeTwoGramFrequencies(ArrayList<String> words) {
+	private static List<Frequency> computeTwoGramFrequencies(ArrayList<String> words) {
 		if (words != null) {
 			HashMap<String,Frequency> map = new HashMap<>();
 
@@ -65,6 +65,13 @@ public final class TwoGramFrequencyCounter {
 		} else {
 			return new ArrayList<>();
 		}
+	}
+
+	/**
+	 * Proxy to private method for unit test purposes.
+	 */
+	public static List<Frequency> computeTwoGramFrequenciesProxy(ArrayList<String> words) {
+		return computeTwoGramFrequencies(words);
 	}
 	
 	/**

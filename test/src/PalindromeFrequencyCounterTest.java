@@ -19,7 +19,7 @@ public class PalindromeFrequencyCounterTest extends TestCase {
 	 */
 	public void testComputePalindromeFrequenciesExampleOne() throws Exception {
 		final ArrayList<String> words = null;
-		final List<Frequency> actual = PalindromeFrequencyCounter.computePalindromeFrequencies(words);
+		final List<Frequency> actual = PalindromeFrequencyCounter.computePalindromeFrequenciesProxy(words);
 		assertNotNull("should not be null", actual);
 		assertEquals(0, actual.size());
 	}
@@ -43,7 +43,7 @@ public class PalindromeFrequencyCounterTest extends TestCase {
 	public void testComputePalindromeFrequenciesExampleThree() throws Exception {
 		final String str = "do geese see god abba bat tab";
 		final ArrayList<String> words = splitOnSpaces(str);
-		final List<Frequency> list = PalindromeFrequencyCounter.computePalindromeFrequencies(words);
+		final List<Frequency> list = PalindromeFrequencyCounter.computePalindromeFrequenciesProxy(words);
 		final ArrayList<Frequency> actual = new ArrayList<>(list);
 		assertEquals(3, actual.size());
 

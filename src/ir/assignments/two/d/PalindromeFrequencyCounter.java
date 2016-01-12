@@ -46,7 +46,7 @@ public class PalindromeFrequencyCounter {
 	 * @param words A list of words.
 	 * @return A list of palindrome frequencies, ordered by decreasing frequency.
 	 */
-	public static List<Frequency> computePalindromeFrequencies(ArrayList<String> words) {
+	private static List<Frequency> computePalindromeFrequencies(ArrayList<String> words) {
 		if (words != null) {
 			HashMap<String,Frequency> map = new HashMap<>();
 
@@ -65,6 +65,13 @@ public class PalindromeFrequencyCounter {
 		} else {
 			return new ArrayList<>();
 		}
+	}
+
+	/**
+	 * Proxy to private method for unit test purposes.
+	 */
+	public static List<Frequency> computePalindromeFrequenciesProxy(ArrayList<String> words) {
+		return computePalindromeFrequencies(words);
 	}
 
 	/**

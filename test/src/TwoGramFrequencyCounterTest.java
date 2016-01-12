@@ -19,7 +19,7 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 	 */
 	public void testComputeTwoGramFrequenciesExampleOne() throws Exception {
 		final ArrayList<String> words = null;
-		final List<Frequency> actual = TwoGramFrequencyCounter.computeTwoGramFrequencies(words);
+		final List<Frequency> actual = TwoGramFrequencyCounter.computeTwoGramFrequenciesProxy(words);
 		assertNotNull("should not be null", actual);
 		assertEquals(0, actual.size());
 	}
@@ -30,7 +30,7 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 	public void testComputeTwoGramFrequenciesExampleTwo() throws Exception {
 		final String str = "hello";
 		final ArrayList<String> words = splitOnSpaces(str);
-		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequencies(words);
+		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequenciesProxy(words);
 		final ArrayList<Frequency> actual = new ArrayList<>(list);
 		assertEquals(0, actual.size());
 	}
@@ -56,7 +56,7 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 	public void testComputeTwoGramFrequenciesExampleThree() throws Exception {
 		final String str = "you think you know how you think";
 		final ArrayList<String> words = splitOnSpaces(str);
-		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequencies(words);
+		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequenciesProxy(words);
 		final ArrayList<Frequency> actual = new ArrayList<>(list);
 		assertEquals(5, actual.size());
 
@@ -82,7 +82,7 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 	public void testComputeTwoGramFrequenciesExampleFour() throws Exception {
 		final String str = "hello world";
 		final ArrayList<String> words = splitOnSpaces(str);
-		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequencies(words);
+		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequenciesProxy(words);
 		final ArrayList<Frequency> actual = new ArrayList<>(list);
 		assertEquals(1, actual.size());
 		assertEquals("hello world", actual.get(0).getText());
@@ -95,7 +95,7 @@ public class TwoGramFrequencyCounterTest extends TestCase {
 	public void testComputeTwoGramFrequenciesExampleFive() throws Exception {
 		final String str = "hello world goodbye";
 		final ArrayList<String> words = splitOnSpaces(str);
-		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequencies(words);
+		final List<Frequency> list = TwoGramFrequencyCounter.computeTwoGramFrequenciesProxy(words);
 		final ArrayList<Frequency> actual = new ArrayList<>(list);
 		assertEquals(2, actual.size());
 		assertEquals("hello world", actual.get(0).getText());
