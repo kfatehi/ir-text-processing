@@ -1,25 +1,19 @@
-Summary: The palindrome counter runs in polynomial time.
+Based on my analysis, the algorithm appears to run in polynomial time complexity O(n^2 log(n))
 
-There seems to be at least two different ways to analyze the efficiency of my palindrome counter:
+I've also produced a runtime graph that appears to be consistent with this complexity class.
 
-1) Read each line of code, accounting for loops and so on.
-2) Perform a large amount of trials and plot a function of input size in words versus running time.
+The graph can be found as graph.png or in HTML form in test/support/analyzer/index.html
 
-I opted for #2 and wrote scripts to accomplish this
+computePalindromeFrequencies =
+  Full Word Loop: O(n)
+    * findPalindrome =
+      Partial Word Loop: O(log(n))
+        * isPalindrome =
+          + String Build: O(n)
+          + String Reverse: O(n)
+          + String Comparison: O(n)
+  + HashMap Put: O(1)
+  + HashMap Values to ArrayList: O(n)
+  + ArrayList.sort: O(n log(n))
 
-Test system:
-CPU: 8-core Intel Core i7
-RAM: 16GB
-
-I collected data points using a script designed to produce a valid JavaScript file with data ready for plotting by the D3 library:
-
-PREFIX="java -classpath _build ir.assignments.one.d.PalindromeFrequencyCounter" \
-PARALLEL=8 \
-START_SIZE=1 \
-test/support/analyzer/collect.sh
-
-Afterwards, I opened test/support/analyzer/index.html to render the graph. In case this doesn't work for you, I have saved an image representation of the graph as graph.png right beside this file.
-
-By comparing my generated graph with those of known Big O complexity classes (linked below), I was able to determine that my algorithm falls under the polynomial time complexity class.
-
-http://i.stack.imgur.com/ia6VB.png
+O(n) * ( O(log(n)) * ( O(n) + O(n) + O(n) ) ) + O(1) + O(n) + O(n log(n))
