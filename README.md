@@ -12,4 +12,4 @@ Information retreival homework
 
 ## Run palindrome finder
 
-`java -classpath _build ir.assignments.one.d.PalindromeFrequencyCounter test/fixtures/pal.txt`
+`java -classpath _build ir.assignments.two.d.PalindromeFrequencyCounter test/fixtures/pal.txt`

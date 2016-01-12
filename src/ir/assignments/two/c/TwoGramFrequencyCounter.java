@@ -1,7 +1,7 @@
-package ir.assignments.one.c;
+package ir.assignments.two.c;
 
-import ir.assignments.one.a.Frequency;
-import ir.assignments.one.a.Utilities;
+import ir.assignments.two.a.Frequency;
+import ir.assignments.two.a.Utilities;
 
 import java.io.File;
 import java.util.List;

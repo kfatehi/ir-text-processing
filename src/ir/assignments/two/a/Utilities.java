@@ -1,4 +1,4 @@
-package ir.assignments.one.a;
+package ir.assignments.two.a;
 
 import java.io.File;
 import java.io.FileNotFoundException;

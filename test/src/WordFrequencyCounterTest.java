@@ -2,8 +2,8 @@ package ir.test;
 import junit.framework.TestCase;
 import static ir.test.TestHelper.*;
 
-import ir.assignments.one.b.WordFrequencyCounter;
-import ir.assignments.one.a.Frequency;
+import ir.assignments.two.b.WordFrequencyCounter;
+import ir.assignments.two.a.Frequency;
 
 import java.util.ArrayList;
 import java.util.List;

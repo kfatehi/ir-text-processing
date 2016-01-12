@@ -10,11 +10,11 @@ CLASSPATH=.:$(JUNIT):$(BUILD)
 
 # Source files to compile, in order
 JAVAC_SRCLIST_FOR_TEST= \
-						src/ir/assignments/one/a/Frequency.java \
-						src/ir/assignments/one/a/Utilities.java \
-						src/ir/assignments/one/b/WordFrequencyCounter.java \
-						src/ir/assignments/one/c/TwoGramFrequencyCounter.java \
-						src/ir/assignments/one/d/PalindromeFrequencyCounter.java \
+						src/ir/assignments/two/a/Frequency.java \
+						src/ir/assignments/two/a/Utilities.java \
+						src/ir/assignments/two/b/WordFrequencyCounter.java \
+						src/ir/assignments/two/c/TwoGramFrequencyCounter.java \
+						src/ir/assignments/two/d/PalindromeFrequencyCounter.java \
 						test/support/TestHelper.java \
 						test/support/Fixtures.java \
 						test/src/UtilitiesTest.java \
@@ -55,7 +55,7 @@ autodoc:
 	watchy -w src,test -- bash -c "clear; make docs"
 
 analyzer-run-collector:
-	@PREFIX="java -classpath _build ir.assignments.one.d.PalindromeFrequencyCounter" \
+	@PREFIX="java -classpath _build ir.assignments.two.d.PalindromeFrequencyCounter" \
 				 PARALLEL=2 \
 				 START_SIZE=1 \
 				 test/support/analyzer/collect.sh

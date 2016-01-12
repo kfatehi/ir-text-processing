@@ -1,7 +1,7 @@
 package ir.test;
 
-import ir.assignments.one.a.Utilities;
-import ir.assignments.one.a.Frequency;
+import ir.assignments.two.a.Utilities;
+import ir.assignments.two.a.Frequency;
 
 import static ir.test.TestHelper.*;
 
