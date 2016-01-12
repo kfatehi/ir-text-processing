@@ -48,11 +48,11 @@ public class UtilitiesTest extends TestCase {
 			"Total item count: 6\n"
 			+"Unique item count: 5\n"
 			+"\n"
-			+"sentence            2\n"
-			+"the                 1\n"
-			+"this                1\n"
-			+"repeats             1\n"
-			+"word                1\n";
+			+"sentence    2\n"
+			+"the         1\n"
+			+"this        1\n"
+			+"repeats     1\n"
+			+"word        1\n";
 		captureOutput( new CaptureTest() {
 			@Override
 			public void test(ByteArrayOutputStream outContent, ByteArrayOutputStream errContent) throws Exception {
@@ -77,11 +77,11 @@ public class UtilitiesTest extends TestCase {
 			"Total 2-gram count: 6\n"
 			+"Unique 2-gram count: 5\n"
 			+"\n"
-			+"you think           2\n"
-			+"how you             1\n"
-			+"know how            1\n"
-			+"think you           1\n"
-			+"you know            1\n";
+			+"you think    2\n"
+			+"how you      1\n"
+			+"know how     1\n"
+			+"think you    1\n"
+			+"you know     1\n";
 		captureOutput( new CaptureTest() {
 			@Override
 			public void test(ByteArrayOutputStream outContent, ByteArrayOutputStream errContent) throws Exception {

@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.Arrays;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.Comparator;
 
 /**
@@ -96,37 +94,39 @@ public class Utilities {
 	 * @param frequencies A list of frequencies.
 	 */
 	public static void printFrequencies(List<Frequency> frequencies) {
-		final ByteArrayOutputStream tableContent = new ByteArrayOutputStream();
-		final PrintStream table = new PrintStream(tableContent);
 		String type = "item";
 		boolean twoGram = true;
 		int total = 0;
 		int len = frequencies.size();
+		int longestWordLen = 0;
 
-		// Do a single loop and figure it all out
 		for (int i=0; i < len; i++) {
 			Frequency freq = frequencies.get(i);
+			String word = freq.getText();
 
 			// Update totals
 			total = total + freq.getFrequency();
 
+			// Update longest word length
+			int wordLen = word.length();
+			if (longestWordLen < wordLen)
+				longestWordLen = wordLen;
+
 			// Determine 2-gram-ness of the list
-			int grams = freq.getText().split(" ").length;
+			int grams = word.split(" ").length;
 			if (grams != 2) twoGram = false;
 			if (twoGram && i == len-1)
 				type = "2-gram";
-
-			// Print the frequencies in a tabular format
-			table.printf("%-20s%s%n", freq.getText(), freq.getFrequency());
 		}
 
 		// Print the summary information
 		System.out.printf("Total %s count: %s%n", type, total);
 		System.out.printf("Unique %s count: %s%n%n", type, len);
 
-		// Print table
-		System.out.print(tableContent.toString());
-
+		for (Frequency freq : frequencies) {
+			// Print the frequencies in a tabular format
+			System.out.printf("%-"+(longestWordLen+4)+"s%s%n", freq.getText(), freq.getFrequency());
+		}
 	}
 
 	/**
