@@ -18,7 +18,7 @@ PARALLEL=8 \
 START_SIZE=1 \
 test/support/analyzer/collect.sh
 
-Afterwards, I opened test/support/analyzer/index.html to see the graph. You can also check this out. The data file is saved in the repository.
+Afterwards, I opened test/support/analyzer/index.html to render the graph. In case this doesn't work for you, I have saved an image representation of the graph as graph.png right beside this file.
 
 By comparing my generated graph with those of known Big O complexity classes (linked below), I was able to determine that my algorithm falls under the polynomial time complexity class.
 
