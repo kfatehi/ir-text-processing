@@ -43,7 +43,7 @@ public class WordFrequencyCounterTest extends TestCase {
 	 * tied words are sorted alphabetically.
 	 */
 	public void testComputeWordFrequenciesExampleThree() throws Exception {
-		final String str = "top top cat bat rat cat rat bat last top";
+		final String str = "top top cat bat rat cat rat bat won't top";
 		ArrayList<String> words = splitOnSpaces(str);
 		List<Frequency> list = WordFrequencyCounter.computeWordFrequencies(words);
 		ArrayList<Frequency> actual = new ArrayList<>(list);
@@ -60,7 +60,7 @@ public class WordFrequencyCounterTest extends TestCase {
 		assertEquals("rat", actual.get(3).getText());
 		assertEquals(2, actual.get(3).getFrequency());
 
-		assertEquals("last", actual.get(4).getText());
+		assertEquals("won't", actual.get(4).getText());
 		assertEquals(1, actual.get(4).getFrequency());
 	}
 
