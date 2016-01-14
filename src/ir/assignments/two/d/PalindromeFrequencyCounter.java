@@ -95,6 +95,8 @@ public class PalindromeFrequencyCounter {
 	 *
 	 * @param strings a list of strings
 	 * @return the string if it's a palindrome, otherwise null
+	 *
+	 * TODO use stringbuilder lol
 	 */
 	private static String isPalindrome(List<String> strings) {
 		String str = "";
