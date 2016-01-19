@@ -99,13 +99,13 @@ public class PalindromeFrequencyCounter {
 	 * TODO use stringbuilder lol
 	 */
 	private static String isPalindrome(List<String> strings) {
-		String str = "";
+		StringBuilder builder = new StringBuilder();
 		for (String substr : strings) {
-			if (str.length() > 0)
-				str+= " ";
-			str += substr;
+			if (builder.length() > 0)
+				builder.append(" ");
+			builder.append(substr);
 		}
-		return isPalindrome(str);
+		return isPalindrome(builder.toString());
 	}
 
 	/**
